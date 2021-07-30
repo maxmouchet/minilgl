@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore: ['**.md']
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y libboost-atomic-dev
+      - name: Build
+        run: |
+          cmake -S . -B build
+          cmake --build build --parallel 8
+      - name: Test
+        run: |
+          build/lglfileconvert tests/simple.ncol simple.lgl
+          build/lglayout simple.lgl
+          # cmp lgl.out tests/simple.out
+          # cmp lgl.out.root tests/simple.out.root
