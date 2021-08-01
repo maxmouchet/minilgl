@@ -31,5 +31,7 @@
 # *.out
 *.app
 
+.idea/
 build/
+cmake-build-*/
 lgl.out*
