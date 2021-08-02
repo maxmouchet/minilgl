@@ -30,11 +30,11 @@
 #include <cstdlib>
 #include <map>
 #include <stdexcept>
-#include <unordered_map>
 #include <string.h>	// for strdup
 
 #include "particle.hpp"
 #include "particleContainer.hpp"
+#include "robin_hood.h"
 
 //----------------------------------------------------
 
@@ -63,7 +63,7 @@ public:
   vec_type initVel_;
   vec_type vel_;
   vec_type initPos_;
-  std::unordered_map< std::string, vec_type > positions_from_file_;
+  robin_hood::unordered_map< std::string, vec_type > positions_from_file_;
   precision radius_;
   precision initMass_;
   char * file_in[3];     //  X V M

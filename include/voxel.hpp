@@ -22,9 +22,9 @@
 #define _VOXEL_HPP_
 
 #include <iostream>
-#include <unordered_set>
 #include "cube.hpp"
 #include "aPthread.hpp"
+#include "robin_hood.h"
 
 //------------------------------------------------------------
 // A voxel IS a cube with occupants inside.
@@ -38,7 +38,7 @@ class Voxel : public Cube< typename Occupant::precision ,
 {
 
  private:
-  typedef typename std::unordered_set< Occupant * > OL_;
+  typedef typename robin_hood::unordered_set< Occupant * > OL_;
   typedef Voxel< Occupant > Voxel_;
   typedef Cube< typename Occupant::precision , 
 		Occupant::dimension > Cube_;
