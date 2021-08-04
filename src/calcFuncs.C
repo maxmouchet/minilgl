@@ -313,9 +313,9 @@ void initializeCurrentLayer( Graph_t& layout_graph , NodeContainer& nodes ,
 
 //----------------------------------------------------------
 
-void layerNPlacement( NodeContainer& nodes , Grid_t& grid , out_graph& g , 
+void layerNPlacement( NodeContainer& nodes , Grid_t& /*grid*/ , out_graph& g ,
 		      FixedVec_p& cm , unsigned int currentLevel , ParentMap& parents ,
-		      Graph_t& actualG, LevelMap& lm , prec_t placementDistance,
+		      Graph_t& actualG, LevelMap& /*lm*/ , prec_t placementDistance,
 		      prec_t placementRadius , bool placeLeafsClose )
 {
   typedef Sphere<prec_t> S;
@@ -402,7 +402,7 @@ void layerNPlacement( NodeContainer& nodes , Grid_t& grid , out_graph& g ,
 
 static std::set<long> areParents;
 
-bool doesVertexHaveAnyChildren( Graph_t& G, Graph_t::vertex_descriptor v ,
+bool doesVertexHaveAnyChildren( Graph_t& /*G*/, Graph_t::vertex_descriptor v ,
 				out_graph& g , ParentMap& parents )
 { 
   if ( areParents.empty() ) {
@@ -471,7 +471,7 @@ prec_t placementFormula( prec_t placementDistance , int vertices2place , int dim
 
 //----------------------------------------------------------
 
-prec_t collectOutput ( ThreadArgs * args , PCChaperone& chaperone )
+prec_t collectOutput ( ThreadArgs * args , PCChaperone& /*chaperone*/ )
 {
   for ( long ii=1; ii<args[0].threadCount; ++ii ) {
     args[0].stats->integrateWithOther( *(args[ii].stats) );

@@ -351,7 +351,7 @@ public:
 
   // This will set/get the id of this iterator
   void id( int i ){ iterID=i; }
-  const int id() const { return iterID; }
+  int id() const { return iterID; }
 
   // This gives voxel info
   const voxel_type& startVox() const { return *start_; }
