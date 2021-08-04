@@ -11,3 +11,7 @@ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build
 build/lglayout2d # or build/lglayout3d
 ```
+
+```bash
+docker run dioptraio/minilgl lglayout2d
+```
