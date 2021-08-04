@@ -384,7 +384,7 @@ private:
 template < typename LevelMap, typename ParentMap >
 level_recorder<LevelMap,ParentMap>
 record_levels( LevelMap& m , ParentMap& p )
-{ return level_recorder<LevelMap,ParentMap>(m,p); };
+{ return level_recorder<LevelMap,ParentMap>(m,p); }
 
 
 template< typename Graph , typename LevelMap , typename ParentMap >
@@ -419,7 +419,7 @@ private:
 
 template < typename LevelMap >
 level_recorder2<LevelMap>
-record_levels2( LevelMap& m ) { return level_recorder2<LevelMap>(m); };
+record_levels2( LevelMap& m ) { return level_recorder2<LevelMap>(m); }
 
 template< typename Graph >
 int sumDOS( const Graph& g , typename Graph::vertex_descriptor root )
