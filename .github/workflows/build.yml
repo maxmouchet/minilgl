@@ -20,7 +20,7 @@ jobs:
           cmake --build build --parallel 8
       - name: Test
         run: |
-          build/lglfileconvert tests/simple.ncol simple.lgl
-          build/lglayout simple.lgl
+          build/lglfileconvert2d tests/simple.ncol simple.lgl
+          build/lglayout2d simple.lgl
           # cmp lgl.out tests/simple.out
           # cmp lgl.out.root tests/simple.out.root
