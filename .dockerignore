@@ -1,4 +1,5 @@
 *
+!apps/
 !include/
 !src/
 !CMakeLists.txt

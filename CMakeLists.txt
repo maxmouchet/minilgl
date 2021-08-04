@@ -17,13 +17,23 @@ find_package(Boost REQUIRED COMPONENTS atomic)
 find_package(Threads REQUIRED)
 
 foreach (dimension 2 3)
+    set(target calcfuncs${dimension}d)
+    add_library(${target} ${PROJECT_SOURCE_DIR}/src/calcFuncs.C)
+    target_compile_definitions(${target} PRIVATE DIMENSION=${dimension})
+    target_compile_features(${target} PRIVATE cxx_std_11)
+    target_compile_options(${target} PRIVATE -Wall -Wextra -pedantic)
+    target_include_directories(
+            ${target} PRIVATE
+            ${PROJECT_BINARY_DIR}
+            ${PROJECT_SOURCE_DIR}/include
+    )
+    target_link_libraries(${target} PRIVATE Boost::headers)
+endforeach ()
+
+foreach (dimension 2 3)
     foreach (binary lglayout lglbreakup lglfileconvert lglrebuild)
         set(target ${binary}${dimension}d)
-        add_executable(
-                ${target}
-                ${PROJECT_SOURCE_DIR}/src/calcFuncs.C
-                ${PROJECT_SOURCE_DIR}/src/${binary}.C
-        )
+        add_executable(${target} ${PROJECT_SOURCE_DIR}/apps/${binary}.C)
         target_compile_definitions(${target} PRIVATE DIMENSION=${dimension})
         target_compile_features(${target} PRIVATE cxx_std_11)
         target_compile_options(${target} PRIVATE -Wall -Wextra -pedantic)
@@ -32,6 +42,6 @@ foreach (dimension 2 3)
                 ${PROJECT_BINARY_DIR}
                 ${PROJECT_SOURCE_DIR}/include
         )
-        target_link_libraries(${target} PRIVATE Boost::atomic Threads::Threads)
+        target_link_libraries(${target} PRIVATE Boost::atomic Threads::Threads calcfuncs${dimension}d)
     endforeach ()
 endforeach ()
