@@ -1,9 +1,7 @@
 # minilgl
 
-[![Build](https://img.shields.io/github/workflow/status/dioptra-io/minilgl/Build?logo=github)](https://github.com/dioptra-io/flashroute-docker/actions/workflows/build.yml)
-[![Docker Architecture](https://img.shields.io/badge/arch-amd64%20%7C%20arm64-blue?logo=docker&logoColor=white)](https://hub.docker.com/r/dioptraio/minilgl/tags)
-[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/dioptraio/minilgl?label=size&logo=docker&logoColor=white)](https://hub.docker.com/r/dioptraio/minilgl/tags)
-[![Docker Image Version (latest by date)](https://img.shields.io/docker/v/dioptraio/minilgl?color=blue&label=version&logo=docker&logoColor=white)](https://hub.docker.com/r/dioptraio/minilgl/tags)
+[![Build](https://github.com/dioptra-io/minilgl/actions/workflows/build.yml/badge.svg)](https://github.com/dioptra-io/minilgl/actions/workflows/build.yml)
+[![Docker](https://github.com/dioptra-io/minilgl/actions/workflows/docker.yml/badge.svg)](https://github.com/dioptra-io/minilgl/actions/workflows/docker.yml)
 
 Cleaned-up fork of [TheOpteProject/LGL](https://github.com/TheOpteProject/LGL) (Large Graph Layout) :
 - Removal of Java code, BGP dumps, Perl scripts ...
@@ -21,5 +19,5 @@ build/lglayout2d # or {lglayout,lglbreakup,lglfileconvert,lglrebuild}{2d,3d}
 
 ```bash
 # {lglayout,lglbreakup,lglfileconvert,lglrebuild}{2d,3d}
-docker run dioptraio/minilgl lglayout2d
+docker run ghcr.io/dioptra-io/minilgl lglayout2d
 ```
