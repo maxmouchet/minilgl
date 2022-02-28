@@ -43,5 +43,6 @@ foreach (dimension 2 3)
                 ${PROJECT_SOURCE_DIR}/include
         )
         target_link_libraries(${target} PRIVATE Boost::atomic Threads::Threads calcfuncs${dimension}d)
+        install(TARGETS ${target} RUNTIME DESTINATION bin)
     endforeach ()
 endforeach ()
