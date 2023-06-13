@@ -1,11 +1,10 @@
 # minilgl
 
-[![Build](https://github.com/dioptra-io/minilgl/actions/workflows/build.yml/badge.svg)](https://github.com/dioptra-io/minilgl/actions/workflows/build.yml)
-[![Docker](https://github.com/dioptra-io/minilgl/actions/workflows/docker.yml/badge.svg)](https://github.com/dioptra-io/minilgl/actions/workflows/docker.yml)
+[![Build](https://github.com/maxmouchet/minilgl/actions/workflows/build.yml/badge.svg)](https://github.com/maxmouchet/minilgl/actions/workflows/build.yml)
 
-Cleaned-up fork of [TheOpteProject/LGL](https://github.com/TheOpteProject/LGL) (Large Graph Layout) :
+Cleaned-up fork of [TheOpteProject/LGL](https://github.com/TheOpteProject/LGL) (Large Graph Layout):
 - Removal of Java code, BGP dumps, Perl scripts ...
-- Use of [`robin_hood`](https://github.com/martinus/robin-hood-hashing) faster `unordered_map` and `unordered_set`
+- Use of [`robin_hood`](https://github.com/martinus/robin-hood-hashing)'s faster `unordered_map` and `unordered_set`
 
 ## Build from source
 
@@ -19,5 +18,11 @@ build/lglayout2d # or {lglayout,lglbreakup,lglfileconvert,lglrebuild}{2d,3d}
 
 ```bash
 # {lglayout,lglbreakup,lglfileconvert,lglrebuild}{2d,3d}
-docker run ghcr.io/dioptra-io/minilgl lglayout2d
+docker run ghcr.io/maxmouchet/minilgl:main lglayout2d
+```
+
+## Nix
+
+```bash
+nix run github:maxmouchet/minilgl#lglayout2d
 ```

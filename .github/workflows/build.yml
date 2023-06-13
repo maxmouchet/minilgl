@@ -1,14 +1,9 @@
 name: Build
-
-on:
-  push:
-    branches: [ main ]
-    paths-ignore: ['**.md']
-  pull_request:
+on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
@@ -24,3 +19,12 @@ jobs:
           build/lglayout2d simple.lgl
           # cmp lgl.out tests/simple.out
           # cmp lgl.out.root tests/simple.out.root
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dioptra-io/publish-docker-action@v1
+        with:
+          password: ${{ secrets.GITHUB_TOKEN }}
+          platforms: linux/amd64,linux/arm64
